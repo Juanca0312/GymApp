@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,13 +26,13 @@
             </objects>
             <point key="canvasLocation" x="-787" y="-304"/>
         </scene>
-        <!--Item-->
+        <!--Exercises-->
         <scene sceneID="PSD-B6-xsS">
             <objects>
                 <navigationController id="brN-lz-2dP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GwY-IT-AQY"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vTv-VP-R0h">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <tabBarItem key="tabBarItem" title="Exercises" image="dumbbell.fill" catalog="system" selectedImage="dumbbell.fill" id="GwY-IT-AQY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vTv-VP-R0h">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -42,51 +43,22 @@
             </objects>
             <point key="canvasLocation" x="-230" y="382"/>
         </scene>
-        <!--Item-->
+        <!--Routine-->
         <scene sceneID="NLZ-a3-8kZ">
             <objects>
                 <navigationController id="UiJ-qj-zd9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BMj-VO-JlU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ICB-b0-DM8">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <tabBarItem key="tabBarItem" title="Routine" image="figure.run" catalog="system" selectedImage="figure.gymnastics" id="BMj-VO-JlU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ICB-b0-DM8">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0QW-QY-s6T" kind="relationship" relationship="rootViewController" id="YiQ-mo-4rF"/>
+                        <segue destination="1eJ-yP-4Bi" kind="relationship" relationship="rootViewController" id="633-1I-7eW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wlv-gT-FsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1434" y="382"/>
-        </scene>
-        <!--My Routine-->
-        <scene sceneID="tcM-dL-x5G">
-            <objects>
-                <tableViewController id="0QW-QY-s6T" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GzF-aa-tbt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoutineCell" id="mA7-Gq-wqY">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mA7-Gq-wqY" id="8lD-HP-fcU">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="0QW-QY-s6T" id="sGi-4R-tRG"/>
-                            <outlet property="delegate" destination="0QW-QY-s6T" id="pQf-Tl-MvO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="My Routine" id="OgM-WZ-agb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pd0-jo-qkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1434" y="1072"/>
         </scene>
         <!--Types-->
         <scene sceneID="exL-CO-5KS">
@@ -149,8 +121,101 @@
             </objects>
             <point key="canvasLocation" x="645" y="1092"/>
         </scene>
+        <!--My Routine-->
+        <scene sceneID="26D-wm-DNf">
+            <objects>
+                <viewController id="1eJ-yP-4Bi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uWc-5k-fdB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-5J-SyE">
+                                <rect key="frame" x="13.333333333333343" y="171" width="366.33333333333326" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAO-Bx-X8e">
+                                        <rect key="frame" x="0.0" y="0.0" width="40.333333333333336" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="M"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uv-p0-cgg">
+                                        <rect key="frame" x="54.333333333333329" y="0.0" width="40.333333333333329" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="T"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxf-BF-jLP">
+                                        <rect key="frame" x="108.66666666666667" y="0.0" width="40.333333333333329" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="W"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1L-hb-YDz">
+                                        <rect key="frame" x="163" y="0.0" width="40.333333333333343" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="T"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-MW-a5d">
+                                        <rect key="frame" x="217.33333333333331" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="F"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-or-zXW">
+                                        <rect key="frame" x="271.66666666666669" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="S"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-w6-eny">
+                                        <rect key="frame" x="326" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="S"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri 21 Jul 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-B3-KGD">
+                                <rect key="frame" x="140.66666666666666" y="224" width="112" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qz7-sM-3dM">
+                                <rect key="frame" x="16" y="252" width="361" height="600"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoutineCell" id="xKz-8C-5lr">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xKz-8C-5lr" id="3gy-pV-auI">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a9q-f0-9fV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qz7-sM-3dM" firstAttribute="top" secondItem="lE5-B3-KGD" secondAttribute="bottom" constant="7.6699999999999999" id="Zpu-Ug-jpw"/>
+                            <constraint firstAttribute="bottom" secondItem="qz7-sM-3dM" secondAttribute="bottom" id="acE-Y6-uTR"/>
+                            <constraint firstItem="FA7-5J-SyE" firstAttribute="centerX" secondItem="uWc-5k-fdB" secondAttribute="centerX" id="ffz-lN-c7D"/>
+                            <constraint firstItem="FA7-5J-SyE" firstAttribute="top" secondItem="a9q-f0-9fV" secondAttribute="top" constant="16" id="hh4-Ie-Sb3"/>
+                            <constraint firstItem="qz7-sM-3dM" firstAttribute="leading" secondItem="a9q-f0-9fV" secondAttribute="leading" constant="16" id="ik0-6f-6AU"/>
+                            <constraint firstItem="lE5-B3-KGD" firstAttribute="top" secondItem="FA7-5J-SyE" secondAttribute="bottom" constant="18.670000000000002" id="koN-nG-3z2"/>
+                            <constraint firstItem="a9q-f0-9fV" firstAttribute="trailing" secondItem="qz7-sM-3dM" secondAttribute="trailing" constant="16" id="ymw-Ob-wMz"/>
+                            <constraint firstItem="lE5-B3-KGD" firstAttribute="centerX" secondItem="uWc-5k-fdB" secondAttribute="centerX" id="yuF-1l-Rdf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Routine" id="rK5-4n-Lve">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dO2-fM-aL4"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W56-qN-S2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1434.3511450381679" y="1091.549295774648"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="dumbbell.fill" catalog="system" width="128" height="72"/>
+        <image name="figure.gymnastics" catalog="system" width="128" height="100"/>
+        <image name="figure.run" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
