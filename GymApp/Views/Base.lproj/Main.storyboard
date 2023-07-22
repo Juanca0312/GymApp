@@ -47,7 +47,7 @@
         <scene sceneID="NLZ-a3-8kZ">
             <objects>
                 <navigationController id="UiJ-qj-zd9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Routine" image="figure.run" catalog="system" selectedImage="figure.gymnastics" id="BMj-VO-JlU"/>
+                    <tabBarItem key="tabBarItem" title="Routine" image="figure.run" catalog="system" selectedImage="figure.run" id="BMj-VO-JlU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ICB-b0-DM8">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -63,7 +63,7 @@
         <!--Types-->
         <scene sceneID="exL-CO-5KS">
             <objects>
-                <tableViewController id="cch-OM-dCL" sceneMemberID="viewController">
+                <tableViewController id="cch-OM-dCL" customClass="ExerciseTypesViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dRW-ly-VCK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Types" id="KEJ-XP-atU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Xl-dk-RPz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Xl-dk-RPz">
+                            <connections>
+                                <action selector="onAddTypePressed:" destination="cch-OM-dCL" id="RJj-qb-ygr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="HLI-LL-vx8" kind="show" identifier="TypesToExercise" id="fub-8f-Zdt"/>
@@ -247,7 +251,6 @@
     </scenes>
     <resources>
         <image name="dumbbell.fill" catalog="system" width="128" height="72"/>
-        <image name="figure.gymnastics" catalog="system" width="128" height="100"/>
         <image name="figure.run" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

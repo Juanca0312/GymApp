@@ -9,4 +9,7 @@ import Foundation
 
 struct K {
     
+    static let dataModelName = "Model"
+    static let exerciseTypeCellIdentifier = "TypeCell"
+    
 }

@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		2D7FB7B82A6B38B3000FDFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7B72A6B38B3000FDFED /* AppDelegate.swift */; };
 		2D7FB7BA2A6B38B3000FDFED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7B92A6B38B3000FDFED /* SceneDelegate.swift */; };
-		2D7FB7BC2A6B38B3000FDFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7BB2A6B38B3000FDFED /* ViewController.swift */; };
 		2D7FB7BF2A6B38B3000FDFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7FB7BD2A6B38B3000FDFED /* Main.storyboard */; };
 		2D7FB7C12A6B38B4000FDFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D7FB7C02A6B38B4000FDFED /* Assets.xcassets */; };
 		2D7FB7C42A6B38B4000FDFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7FB7C22A6B38B4000FDFED /* LaunchScreen.storyboard */; };
 		2D7FB7D02A6B39EC000FDFED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7CF2A6B39EC000FDFED /* Constants.swift */; };
 		2D7FB7D32A6B4972000FDFED /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7D12A6B4972000FDFED /* Model.xcdatamodeld */; };
+		2D7FB7D62A6B4D83000FDFED /* ExerciseTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7D52A6B4D83000FDFED /* ExerciseTypesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D7FB7B42A6B38B3000FDFED /* GymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7FB7B72A6B38B3000FDFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D7FB7B92A6B38B3000FDFED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D7FB7BB2A6B38B3000FDFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2D7FB7BE2A6B38B3000FDFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D7FB7C02A6B38B4000FDFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D7FB7C32A6B38B4000FDFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D7FB7C52A6B38B4000FDFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D7FB7CF2A6B39EC000FDFED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2D7FB7D22A6B4972000FDFED /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2D7FB7D52A6B4D83000FDFED /* ExerciseTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 		2D7FB7CC2A6B39A3000FDFED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D7FB7BB2A6B38B3000FDFED /* ViewController.swift */,
+				2D7FB7D52A6B4D83000FDFED /* ExerciseTypesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D7FB7BC2A6B38B3000FDFED /* ViewController.swift in Sources */,
 				2D7FB7B82A6B38B3000FDFED /* AppDelegate.swift in Sources */,
+				2D7FB7D62A6B4D83000FDFED /* ExerciseTypesViewController.swift in Sources */,
 				2D7FB7D32A6B4972000FDFED /* Model.xcdatamodeld in Sources */,
 				2D7FB7BA2A6B38B3000FDFED /* SceneDelegate.swift in Sources */,
 				2D7FB7D02A6B39EC000FDFED /* Constants.swift in Sources */,
