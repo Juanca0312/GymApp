@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "28C0B32A-9A86-413C-8AEC-230ACF124C7C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86253845-598A-48EA-96DA-D7C4C5D2768B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymApp/Models/ExerciseTypeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "addExerciseType(name:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86253845-598A-48EA-96DA-D7C4C5D2768B - 4dfe2f23424aad2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GymApp.ExerciseTypeManager.addExerciseType(GymApp.ExerciseType) -&gt; GymApp.ExerciseType"
+                  moduleName = "GymApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanca/workspace/iOS/personal/GymApp/GymApp/Models/ExerciseTypeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "86253845-598A-48EA-96DA-D7C4C5D2768B - efecefd0ca0747fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GymApp.ExerciseTypeManager.addExerciseType(name: Swift.String) -&gt; GymApp.ExerciseType"
+                  moduleName = "GymApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanca/workspace/iOS/personal/GymApp/GymApp/Models/ExerciseTypeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7A95CDC-B152-4BD8-8F58-7FA5AB24334F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymApp/Models/ExerciseTypeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "addExerciseType(name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

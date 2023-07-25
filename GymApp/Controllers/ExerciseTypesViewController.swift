@@ -12,9 +12,11 @@ class ExerciseTypesViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var exerciseTypes = [ExerciseType]()
+    let exerciseTypeManager = ExerciseTypeManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        exerciseTypes = exerciseTypeManager.findExerciseTypes()
         
     }
     
@@ -42,11 +44,10 @@ class ExerciseTypesViewController: UITableViewController {
         let alert = UIAlertController(title: "Add Exercise Type", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            let newType = ExerciseType(context: self.context)
-            newType.name = textField.text!
-            self.exerciseTypes.append(newType)
             
-            self.saveItems()
+            self.exerciseTypes.append(self.exerciseTypeManager.addExerciseType(name: textField.text!))
+            self.tableView.reloadData()
+            
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             
@@ -64,28 +65,9 @@ class ExerciseTypesViewController: UITableViewController {
         
     }
     
-    // MARK: - CoreData methods
+
     
-    func loadItems(_ request: NSFetchRequest<ExerciseType> = ExerciseType.fetchRequest()) {
-        
-        do {
-            exerciseTypes = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context, \(error)")
-        }
-        tableView.reloadData()
-    }
-    
-    func saveItems() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context, \(error)")
-        }
-        
-        tableView.reloadData()
-        
-    }
+
     
     
 }
