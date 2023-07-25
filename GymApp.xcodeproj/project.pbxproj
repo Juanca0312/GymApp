@@ -124,6 +124,8 @@
 			dependencies = (
 			);
 			name = GymApp;
+			packageProductDependencies = (
+			);
 			productName = GymApp;
 			productReference = 2D7FB7B42A6B38B3000FDFED /* GymApp.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +154,8 @@
 				Base,
 			);
 			mainGroup = 2D7FB7AB2A6B38B3000FDFED;
+			packageReferences = (
+			);
 			productRefGroup = 2D7FB7B52A6B38B3000FDFED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

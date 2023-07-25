@@ -55,9 +55,8 @@ class ExerciseTypesViewController: UITableViewController {
             self.tableView.reloadData()
             
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            
-        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
         
         alert.addAction(action)
         alert.addAction(cancelAction)
@@ -75,17 +74,33 @@ class ExerciseTypesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let deletedExerciseType = exerciseTypes[indexPath.row]
-            exerciseTypeManager.delete(deletedExerciseType)
-            exerciseTypes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let alert = UIAlertController(title: "Are you sure you want to delete this Exercise Type", message: "", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Delete", style: .default) { (action) in
+                
+                let deletedExerciseType = self.exerciseTypes[indexPath.row]
+                self.exerciseTypeManager.delete(deletedExerciseType)
+                self.exerciseTypes.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(action)
+            alert.addAction(cancelAction)
+
+            
+            present(alert, animated: true)
+            
             
         }
     }
     
-
     
-
+    
+    
+    
+    
     
     
 }
