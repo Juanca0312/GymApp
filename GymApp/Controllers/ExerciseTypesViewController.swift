@@ -16,7 +16,7 @@ class ExerciseTypesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        exerciseTypes = exerciseTypeManager.findExerciseTypes()
+        exerciseTypes = exerciseTypeManager.fetch()
         
     }
     
@@ -36,6 +36,12 @@ class ExerciseTypesViewController: UITableViewController {
         return cell
     }
     
+    // for swaping the row
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
     // MARK: - Add new Exercise Type
     
     @IBAction func onAddTypePressed(_ sender: UIBarButtonItem) {
@@ -45,7 +51,7 @@ class ExerciseTypesViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
-            self.exerciseTypes.append(self.exerciseTypeManager.addExerciseType(name: textField.text!))
+            self.exerciseTypes.append(self.exerciseTypeManager.create(name: textField.text!))
             self.tableView.reloadData()
             
         }
@@ -63,6 +69,18 @@ class ExerciseTypesViewController: UITableViewController {
         
         present(alert, animated: true)
         
+    }
+    
+    // MARK: - Delete Exercise Type
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deletedExerciseType = exerciseTypes[indexPath.row]
+            exerciseTypeManager.delete(deletedExerciseType)
+            exerciseTypes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
     }
     
 
