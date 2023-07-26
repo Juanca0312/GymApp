@@ -23,6 +23,12 @@ class ExerciseTypeManager {
         return newType
     }
     
+    public func update(exerciseType: ExerciseType, newName: String) -> ExerciseType {
+        exerciseType.name = newName
+        self.saveContext()
+        return exerciseType
+    }
+    
     
     public func fetch(_ request: NSFetchRequest<ExerciseType> = ExerciseType.fetchRequest()) -> [ExerciseType] {
         

@@ -17,7 +17,6 @@ class ExerciseTypesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseTypes = exerciseTypeManager.fetch()
-        
     }
     
     // MARK: - Table view data source
@@ -41,39 +40,25 @@ class ExerciseTypesViewController: UITableViewController {
     
     @IBAction func onAddTypePressed(_ sender: UIBarButtonItem) {
         
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add Exercise Type", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            
-            self.exerciseTypes.append(self.exerciseTypeManager.create(name: textField.text!))
-            self.tableView.reloadData()
-            
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        
-        alert.addAction(action)
-        alert.addAction(cancelAction)
-        
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Type name"
-            textField = alertTextField
-        }
+        let alert = alertUpdateOrCreateExerciseType()
         
         present(alert, animated: true)
         
     }
     
-    // MARK: - Delete Exercise Type
+    
+    // MARK: - Delete and Update Exercise Type
     
     // for swaping the row
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // delete exercise type
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             
             let alert = UIAlertController(title: "Are you sure you want to delete this Exercise Type", message: "", preferredStyle: .alert)
@@ -98,17 +83,70 @@ class ExerciseTypesViewController: UITableViewController {
             
             
         }
+        
         deleteAction.image = UIImage(systemName: "trash.fill")
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        
+        // update exercise type
+        
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, view, completion) in
+            let exerciseType = self.exerciseTypes[indexPath.row]
+            let alert = self.alertUpdateOrCreateExerciseType(exerciseType)
+            
+            self.present(alert, animated: true)
+            completion(true)
+        }
+        
+        updateAction.image = UIImage(systemName: "pencil")
+        updateAction.backgroundColor = .orange
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
         return configuration
     }
     
     
-    // MARK: - Edit Exercise Type
-    
-    
-    
+    func alertUpdateOrCreateExerciseType(_ exerciseType: ExerciseType? = nil) -> UIAlertController {
+        
+        var textField = UITextField()
+        
+        let alertTitle = exerciseType != nil ? "Update Exercise Type" : "Add Exercise Type"
+        
+        
+        let alert =  UIAlertController(title:  alertTitle, message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Save", style: .default) { (action) in
+            
+            if let safeExerciseType = exerciseType {
+                //update
+                if let row = self.exerciseTypes.firstIndex(where: {$0.id == safeExerciseType.id}) {
+                    self.exerciseTypes[row] = self.exerciseTypeManager.update(exerciseType: safeExerciseType, newName: textField.text!)
+                }
+                
+            } else {
+                //create
+                self.exerciseTypes.append(self.exerciseTypeManager.create(name: textField.text!))
+            }
+            
+            self.tableView.reloadData()
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Type name"
+            alertTextField.text = exerciseType != nil ? exerciseType?.name : ""
+            textField = alertTextField
+        }
+        
+        return alert
+        
+    }
     
     
     
