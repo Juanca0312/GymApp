@@ -36,11 +36,6 @@ class ExerciseTypesViewController: UITableViewController {
         return cell
     }
     
-    // for swaping the row
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
     
     // MARK: - Add new Exercise Type
     
@@ -72,29 +67,46 @@ class ExerciseTypesViewController: UITableViewController {
     
     // MARK: - Delete Exercise Type
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    // for swaping the row
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             
             let alert = UIAlertController(title: "Are you sure you want to delete this Exercise Type", message: "", preferredStyle: .alert)
             
             let action = UIAlertAction(title: "Delete", style: .default) { (action) in
-                
                 let deletedExerciseType = self.exerciseTypes[indexPath.row]
                 self.exerciseTypeManager.delete(deletedExerciseType)
                 self.exerciseTypes.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
+                completion(true)
+                
             }
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alert.addAction(action)
             alert.addAction(cancelAction)
-
             
-            present(alert, animated: true)
+            
+            
+            self.present(alert, animated: true)
             
             
         }
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
+    
+    
+    // MARK: - Edit Exercise Type
+    
     
     
     
