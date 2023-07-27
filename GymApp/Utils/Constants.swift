@@ -12,4 +12,8 @@ struct K {
     static let dataModelName = "Model"
     static let exerciseTypeCellIdentifier = "TypeCell"
     
+    struct Segues {
+        static let typesToExercises = "typesToExercises"
+    }
+    
 }

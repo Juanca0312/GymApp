@@ -150,7 +150,20 @@ class ExerciseTypesViewController: UITableViewController {
     
     
     
+    // MARK: - Navigate to Exercises
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.Segues.typesToExercises, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ExercisesViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destination.exerciseType = exerciseTypes[indexPath.row]
+        }
+    }
+
     
     
 }

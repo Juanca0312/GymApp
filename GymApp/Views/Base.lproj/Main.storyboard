@@ -91,7 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="HLI-LL-vx8" kind="show" identifier="TypesToExercise" id="fub-8f-Zdt"/>
+                        <segue destination="HLI-LL-vx8" kind="show" identifier="typesToExercises" id="fub-8f-Zdt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q9e-dW-kSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
         <!--Exercises-->
         <scene sceneID="nix-n0-xN9">
             <objects>
-                <viewController id="HLI-LL-vx8" sceneMemberID="viewController">
+                <viewController id="HLI-LL-vx8" customClass="ExercisesViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyZ-pa-r4V">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,6 +153,9 @@
                     <navigationItem key="navigationItem" title="Exercises" id="3SU-lb-OzJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MrU-bF-6bS"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="exerciseTypeLabel" destination="kUB-3n-ceL" id="PL3-5i-rRr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iic-Tg-0aO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
