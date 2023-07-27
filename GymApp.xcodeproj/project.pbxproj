@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D170DE62A6F71C6002F3D43 /* ExerciseTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D170DE52A6F71C6002F3D43 /* ExerciseTypeManager.swift */; };
 		2D170DF12A71F4FB002F3D43 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D170DF02A71F4FB002F3D43 /* ExercisesViewController.swift */; };
+		2D170DF32A71FF9F002F3D43 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D170DF22A71FF9F002F3D43 /* ExerciseManager.swift */; };
 		2D7FB7B82A6B38B3000FDFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7B72A6B38B3000FDFED /* AppDelegate.swift */; };
 		2D7FB7BA2A6B38B3000FDFED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB7B92A6B38B3000FDFED /* SceneDelegate.swift */; };
 		2D7FB7BF2A6B38B3000FDFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7FB7BD2A6B38B3000FDFED /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2D170DE52A6F71C6002F3D43 /* ExerciseTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeManager.swift; sourceTree = "<group>"; };
 		2D170DF02A71F4FB002F3D43 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		2D170DF22A71FF9F002F3D43 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		2D7FB7B42A6B38B3000FDFED /* GymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7FB7B72A6B38B3000FDFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D7FB7B92A6B38B3000FDFED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				2D7FB7D12A6B4972000FDFED /* Model.xcdatamodeld */,
 				2D170DE52A6F71C6002F3D43 /* ExerciseTypeManager.swift */,
+				2D170DF22A71FF9F002F3D43 /* ExerciseManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				2D7FB7B82A6B38B3000FDFED /* AppDelegate.swift in Sources */,
 				2D7FB7D62A6B4D83000FDFED /* ExerciseTypesViewController.swift in Sources */,
 				2D170DF12A71F4FB002F3D43 /* ExercisesViewController.swift in Sources */,
+				2D170DF32A71FF9F002F3D43 /* ExerciseManager.swift in Sources */,
 				2D7FB7D32A6B4972000FDFED /* Model.xcdatamodeld in Sources */,
 				2D170DE62A6F71C6002F3D43 /* ExerciseTypeManager.swift in Sources */,
 				2D7FB7BA2A6B38B3000FDFED /* SceneDelegate.swift in Sources */,

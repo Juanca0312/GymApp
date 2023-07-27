@@ -10,10 +10,15 @@ import Foundation
 struct K {
     
     static let dataModelName = "Model"
-    static let exerciseTypeCellIdentifier = "TypeCell"
     
-    struct Segues {
+    struct Segue {
         static let typesToExercises = "typesToExercises"
+    }
+    
+    struct CellIdentifier {
+        static let exerciseCell = "ExerciseCell"
+        static let exerciseTypeCell = "TypeCell"
+        
     }
     
 }

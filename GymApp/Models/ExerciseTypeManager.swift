@@ -5,7 +5,6 @@
 //  Created by Juan Carlos Hernandez Castillo on 24/07/23.
 //
 
-import Foundation
 import CoreData
 import UIKit
 

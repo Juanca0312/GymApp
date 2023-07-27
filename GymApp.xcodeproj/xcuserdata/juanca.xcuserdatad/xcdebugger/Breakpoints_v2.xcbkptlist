@@ -14,8 +14,8 @@
             filePath = "GymApp/Models/ExerciseTypeManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "create(name:)"
             landmarkType = "7">
             <Locations>
@@ -49,6 +49,21 @@
                   endingLineNumber = "20"
                   offsetFromSymbolStart = "112">
                </Location>
+               <Location
+                  uuid = "86253845-598A-48EA-96DA-D7C4C5D2768B - d82339b0d39c78b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GymApp.ExerciseTypeManager.create(name: Swift.String) -&gt; GymApp.ExerciseType"
+                  moduleName = "GymApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanca/workspace/iOS/personal/GymApp/GymApp/Models/ExerciseTypeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "112">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,8 +77,8 @@
             filePath = "GymApp/Models/ExerciseTypeManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "create(name:)"
             landmarkType = "7">
          </BreakpointContent>

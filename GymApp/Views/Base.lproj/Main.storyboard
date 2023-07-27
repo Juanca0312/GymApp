@@ -151,10 +151,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Exercises" id="3SU-lb-OzJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MrU-bF-6bS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MrU-bF-6bS">
+                            <connections>
+                                <action selector="onAddExercisePressed:" destination="HLI-LL-vx8" id="t5F-5E-hjE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="exerciseTypeLabel" destination="kUB-3n-ceL" id="PL3-5i-rRr"/>
+                        <outlet property="tableView" destination="94N-fR-9C5" id="ZkZ-Px-2Br"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iic-Tg-0aO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

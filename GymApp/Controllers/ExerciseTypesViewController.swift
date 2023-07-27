@@ -27,7 +27,7 @@ class ExerciseTypesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.exerciseTypeCellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.exerciseTypeCell, for: indexPath)
         
         let type = exerciseTypes[indexPath.row] as ExerciseType
         cell.textLabel?.text = type.name
@@ -153,7 +153,7 @@ class ExerciseTypesViewController: UITableViewController {
     // MARK: - Navigate to Exercises
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: K.Segues.typesToExercises, sender: self)
+        performSegue(withIdentifier: K.Segue.typesToExercises, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
