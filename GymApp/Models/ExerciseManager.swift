@@ -24,6 +24,19 @@ class ExerciseManager {
         return newExercise
     }
     
+    public func findByType(exerciseType: ExerciseType) -> [Exercise] {
+        
+        do {
+            let request = Exercise.fetchRequest()
+            request.predicate = NSPredicate(format: "parent = %@", exerciseType)
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching data from context, \(error)")
+            return []
+        }
+        
+    }
+    
     private func saveContext() {
         do {
             try context.save()

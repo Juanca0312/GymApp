@@ -27,9 +27,12 @@ class ExercisesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.exercises = self.exerciseManager.findByType(exerciseType: self.exerciseType!)
+
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
     }
+    
     
     
     // MARK: - Add Exercise
@@ -86,7 +89,7 @@ class ExercisesViewController: UIViewController {
         
     }
     
-
+    
 }
 
 // MARK: - Table view data source
@@ -107,5 +110,6 @@ extension ExercisesViewController: UITableViewDataSource {
         
         return cell
     }
+    
     
 }
