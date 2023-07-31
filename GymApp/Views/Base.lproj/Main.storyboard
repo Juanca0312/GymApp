@@ -159,7 +159,7 @@
         <!--My Routine-->
         <scene sceneID="26D-wm-DNf">
             <objects>
-                <viewController id="1eJ-yP-4Bi" sceneMemberID="viewController">
+                <viewController id="1eJ-yP-4Bi" customClass="RoutineViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWc-5k-fdB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,36 +171,57 @@
                                         <rect key="frame" x="0.0" y="0.0" width="40.333333333333336" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="M"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="AG4-PY-Ysg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uv-p0-cgg">
                                         <rect key="frame" x="54.333333333333329" y="0.0" width="40.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="T"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="Dnq-XD-50q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxf-BF-jLP">
                                         <rect key="frame" x="108.66666666666667" y="0.0" width="40.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="W"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="4Kt-0C-bk1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1L-hb-YDz">
                                         <rect key="frame" x="163" y="0.0" width="40.333333333333343" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="T"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="aiO-rT-ubF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-MW-a5d">
                                         <rect key="frame" x="217.33333333333331" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="F"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="wD8-WY-fRz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-or-zXW">
                                         <rect key="frame" x="271.66666666666669" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="S"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="7uU-xC-qON"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-w6-eny">
                                         <rect key="frame" x="326" y="0.0" width="40.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="S"/>
+                                        <connections>
+                                            <action selector="onWeekdayPressed:" destination="1eJ-yP-4Bi" eventType="touchUpInside" id="beW-Tn-Mgx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -241,6 +262,17 @@
                     <navigationItem key="navigationItem" title="My Routine" id="rK5-4n-Lve">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dO2-fM-aL4"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentDateLabel" destination="lE5-B3-KGD" id="bDx-Lq-sIF"/>
+                        <outlet property="fridayButton" destination="OUd-MW-a5d" id="UgV-r3-4en"/>
+                        <outlet property="mondayButton" destination="HAO-Bx-X8e" id="p2J-gb-09z"/>
+                        <outlet property="saturdayButton" destination="UjD-or-zXW" id="6O5-V5-OJP"/>
+                        <outlet property="sundayButton" destination="wYg-w6-eny" id="Ail-UE-Fr4"/>
+                        <outlet property="tableView" destination="qz7-sM-3dM" id="WE6-ju-coA"/>
+                        <outlet property="thursdayButton" destination="b1L-hb-YDz" id="KY6-hi-OIC"/>
+                        <outlet property="tuesdayButton" destination="4uv-p0-cgg" id="AIK-0M-WDt"/>
+                        <outlet property="wednesdayButton" destination="Pxf-BF-jLP" id="4ax-kO-cgZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W56-qN-S2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
