@@ -16,6 +16,7 @@ struct K {
     }
     
     struct CellIdentifier {
+        static let exerciseCellNib = "ExerciseCell"
         static let exerciseCell = "ExerciseCell"
         static let exerciseTypeCell = "TypeCell"
         

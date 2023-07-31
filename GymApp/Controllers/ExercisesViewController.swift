@@ -31,6 +31,8 @@ class ExercisesViewController: UIViewController {
 
         tableView.dataSource = self
         
+        tableView.register(UINib(nibName: K.CellIdentifier.exerciseCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifier.exerciseCell)
+        
     }
     
     
@@ -103,10 +105,10 @@ extension ExercisesViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.exerciseCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.exerciseCell, for: indexPath) as! ExerciseCell
         
-        let type = exercises[indexPath.row] as Exercise
-        cell.textLabel?.text = type.name
+        let exercise = exercises[indexPath.row] as Exercise
+        cell.exerciseNameLabel.text = exercise.name
         
         return cell
     }

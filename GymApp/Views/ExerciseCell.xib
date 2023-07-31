@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="113" id="KGk-i7-Jjw" customClass="ExerciseCell" customModule="GymApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-zQ-Hcd">
+                        <rect key="frame" x="10" y="10" width="301" height="93"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultExercise" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-U1-O8p">
+                                <rect key="frame" x="0.0" y="11.666666666666671" width="80" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Ds2-0d-0EN"/>
+                                    <constraint firstAttribute="height" constant="70" id="wMH-v4-x3H"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sra-sA-aZc">
+                                <rect key="frame" x="91" y="36.333333333333336" width="210" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="7K3-zQ-Hcd" secondAttribute="bottom" constant="10" id="2nd-vM-OTz"/>
+                    <constraint firstItem="7K3-zQ-Hcd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4aC-Fp-1tD"/>
+                    <constraint firstAttribute="trailing" secondItem="7K3-zQ-Hcd" secondAttribute="trailing" constant="10" id="eb3-AM-9ku"/>
+                    <constraint firstItem="7K3-zQ-Hcd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="k8f-V0-LI8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="exerciseImage" destination="vTg-U1-O8p" id="7SE-Zn-MoM"/>
+                <outlet property="exerciseNameLabel" destination="sra-sA-aZc" id="1Zw-t4-4pV"/>
+                <outlet property="imageView" destination="vTg-U1-O8p" id="Ur4-Fd-cEl"/>
+            </connections>
+            <point key="canvasLocation" x="135.1145038167939" y="44.014084507042256"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="DefaultExercise" width="500" height="500"/>
+    </resources>
+</document>
