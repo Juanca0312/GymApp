@@ -4,9 +4,17 @@
         <attribute name="image_url" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExerciseType" inverseName="exercises" inverseEntity="ExerciseType"/>
+        <relationship name="routines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="parent" inverseEntity="Routine"/>
     </entity>
     <entity name="ExerciseType" representedClassName="ExerciseType" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parent" inverseEntity="Exercise"/>
+    </entity>
+    <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
+        <attribute name="dayweek" optional="YES" attributeType="String"/>
+        <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="routines" inverseEntity="Exercise"/>
     </entity>
 </model>
