@@ -28,8 +28,9 @@ class ExercisesViewController: UIViewController {
         super.viewDidLoad()
         
         self.exercises = self.exerciseManager.findByType(exerciseType: self.exerciseType!)
-
+        
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.register(UINib(nibName: K.CellIdentifier.exerciseCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifier.exerciseCell)
         
@@ -110,8 +111,65 @@ extension ExercisesViewController: UITableViewDataSource {
         let exercise = exercises[indexPath.row] as Exercise
         cell.exerciseNameLabel.text = exercise.name
         
+        //image from url
+        if let imageURL = URL(string: exercise.image_url!) {
+            cell.imageView?.load(url: imageURL)
+        }
+        
+        
         return cell
     }
     
     
+}
+
+extension ExercisesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        //delete exercise
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            
+            let alert = UIAlertController(title: "Are you sure you want to delete this Exercise", message: "", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Delete", style: .default) { (action) in
+                let deletedExercise = self.exercises[indexPath.row]
+                self.exerciseManager.delete(deletedExercise)
+                self.exercises.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completion(true)
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(action)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+            
+        }
+        
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return configuration
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
 }

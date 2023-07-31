@@ -37,6 +37,11 @@ class ExerciseManager {
         
     }
     
+    public func delete(_ exercise: Exercise) {
+        context.delete(exercise)
+        self.saveContext()
+    }
+    
     private func saveContext() {
         do {
             try context.save()

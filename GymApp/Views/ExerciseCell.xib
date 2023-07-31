@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,8 +20,9 @@
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-zQ-Hcd">
                         <rect key="frame" x="10" y="10" width="301" height="93"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultExercise" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-U1-O8p">
-                                <rect key="frame" x="0.0" y="11.666666666666671" width="80" height="70"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dumbbell.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-U1-O8p">
+                                <rect key="frame" x="0.0" y="15" width="80" height="64"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Ds2-0d-0EN"/>
                                     <constraint firstAttribute="height" constant="70" id="wMH-v4-x3H"/>
@@ -52,6 +54,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="DefaultExercise" width="500" height="500"/>
+        <image name="dumbbell.fill" catalog="system" width="128" height="72"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
