@@ -42,6 +42,13 @@ class ExerciseManager {
         self.saveContext()
     }
     
+    public func update(exercise: Exercise, newName: String, newUrl: String) -> Exercise {
+        exercise.name = newName
+        exercise.image_url = newUrl
+        self.saveContext()
+        return exercise
+    }
+    
     private func saveContext() {
         do {
             try context.save()

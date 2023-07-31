@@ -57,8 +57,11 @@ class ExercisesViewController: UIViewController {
         
         let action = UIAlertAction(title: "Save", style: .default) { (action) in
             
-            if let safeExerciseType = exercise {
+            if let safeExercise = exercise {
                 //update
+                if let row = self.exercises.firstIndex(where: {$0.id == safeExercise.id}) {
+                    self.exercises[row] = self.exerciseManager.update(exercise: safeExercise, newName: nameTextField.text!, newUrl: imageUrlTextField.text!)
+                }
                 
                 
             } else {
@@ -144,7 +147,9 @@ extension ExercisesViewController: UITableViewDelegate {
                 
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+                completion(true)
+            }
             alert.addAction(action)
             alert.addAction(cancelAction)
             
@@ -154,7 +159,20 @@ extension ExercisesViewController: UITableViewDelegate {
         
         deleteAction.image = UIImage(systemName: "trash.fill")
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        //update exercise
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, view, completion) in
+            let exercise = self.exercises[indexPath.row]
+            let alert = self.alertUpdateOrCreateExerciseType(exercise)
+            
+            self.present(alert, animated: true)
+            completion(true)
+            
+        }
+        updateAction.backgroundColor = .orange
+        updateAction.image = UIImage(systemName: "pencil")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
         
         return configuration
     }
