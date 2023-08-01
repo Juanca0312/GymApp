@@ -19,6 +19,7 @@ struct K {
         static let exerciseCellNib = "ExerciseCell"
         static let exerciseCell = "ExerciseCell"
         static let exerciseTypeCell = "TypeCell"
+        static let routineCell = "RoutineCell"
         
     }
     

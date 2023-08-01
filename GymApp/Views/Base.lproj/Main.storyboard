@@ -260,7 +260,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Routine" id="rK5-4n-Lve">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dO2-fM-aL4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dO2-fM-aL4">
+                            <connections>
+                                <action selector="onAddPressed:" destination="1eJ-yP-4Bi" id="2KM-9K-vZL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentDateLabel" destination="lE5-B3-KGD" id="bDx-Lq-sIF"/>

@@ -41,3 +41,6 @@ func getCurrentDate() -> String {
     return formattedDate
 }
 
+func getWeekDays() -> [DayOfWeek] {
+    return [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]
+}
