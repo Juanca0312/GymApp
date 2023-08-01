@@ -41,11 +41,11 @@ class ExercisesViewController: UIViewController {
     // MARK: - Add Exercise
     
     @IBAction func onAddExercisePressed(_ sender: Any) {
-        let alert = alertUpdateOrCreateExerciseType()
+        let alert = alertSaveExerciseType()
         present(alert, animated: true)
     }
     
-    func alertUpdateOrCreateExerciseType(_ exercise: Exercise? = nil) -> UIAlertController {
+    func alertSaveExerciseType(_ exercise: Exercise? = nil) -> UIAlertController {
         
         var nameTextField = UITextField()
         var imageUrlTextField = UITextField()
@@ -163,7 +163,7 @@ extension ExercisesViewController: UITableViewDelegate {
         //update exercise
         let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, view, completion) in
             let exercise = self.exercises[indexPath.row]
-            let alert = self.alertUpdateOrCreateExerciseType(exercise)
+            let alert = self.alertSaveExerciseType(exercise)
             
             self.present(alert, animated: true)
             completion(true)

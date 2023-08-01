@@ -37,6 +37,16 @@ class ExerciseManager {
         
     }
     
+    public func findAll() -> [Exercise] {
+        do {
+            let request = Exercise.fetchRequest()
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching data from context, \(error)")
+            return []
+        }
+    }
+    
     public func delete(_ exercise: Exercise) {
         context.delete(exercise)
         self.saveContext()
