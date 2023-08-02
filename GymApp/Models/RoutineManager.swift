@@ -19,6 +19,7 @@ class RoutineManager {
         newRoutine.weight = weight
         newRoutine.parent = exercise
         newRoutine.sets = Int16(sets)
+        newRoutine.reps = Int16(reps)
         
         self.saveContext()
         
