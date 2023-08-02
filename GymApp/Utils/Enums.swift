@@ -15,4 +15,31 @@ enum DayOfWeek: String {
     case thursday = "Thursday"
     case friday = "Friday"
     case saturday = "Saturday"
+    
+    init?(tagValue: Int) {
+        switch tagValue {
+        case 1:
+            self = .monday
+        case 2:
+            self = .tuesday
+        case 3:
+            self = .wednesday
+        case 4:
+            self = .thursday
+        case 5:
+            self = .friday
+        case 6:
+            self = .saturday
+        case 7:
+            self = .sunday
+        default:
+            return nil
+        }
+    }
 }
+
+
+
+
+
+

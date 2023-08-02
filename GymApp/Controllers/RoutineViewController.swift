@@ -54,10 +54,19 @@ class RoutineViewController: UIViewController {
         initWeekdayButtons()
         loadRoutine(weekday: getCurrentWeekday()!)
         
+        mondayButton.tag = 1
+        tuesdayButton.tag = 2
+        wednesdayButton.tag = 3
+        thursdayButton.tag = 4
+        fridayButton.tag = 5
+        saturdayButton.tag = 6
+        sundayButton.tag = 7
+        
     }
     
     func loadRoutine(weekday: DayOfWeek) {
         weekRoutine = routineManager.findByWeekday(weekday: weekday)
+        tableView.reloadData()
     }
     
     func initWeekdayButtons() {
@@ -96,8 +105,15 @@ class RoutineViewController: UIViewController {
     
     @IBAction func onWeekdayPressed(_ sender: UIButton) {
         resetAllButtons()
-        
         sender.tintColor = .systemBlue
+        
+        let tag = sender.tag
+        
+        if let weekday = DayOfWeek(tagValue: tag) {
+            loadRoutine(weekday: weekday)
+        }
+        
+        
     }
     
     //add routine exercise
@@ -152,12 +168,19 @@ class RoutineViewController: UIViewController {
                 let sets = Int(setsTextField.text!)!
                 let weight = Float(weightTextField.text!)!
                 
-                self.weekRoutine.append(self.routineManager.create(reps: reps, sets: sets, weight: weight, weekday: selectedWeekday , exercise: selectedExercise))
+                let createdWeekDay = self.routineManager.create(reps: reps, sets: sets, weight: weight, weekday: selectedWeekday , exercise: selectedExercise)
+                
+                if selectedWeekday == getCurrentWeekday() {
+                    self.weekRoutine.append(createdWeekDay)
+                    self.tableView.reloadData()
+                }
+                
+                self.showSuccessAlert()
                 
                 
             }
             
-            self.tableView.reloadData()
+            
             
         }
         
@@ -219,7 +242,6 @@ extension RoutineViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.routineCell, for: indexPath)
         
         let routineExercise = weekRoutine[indexPath.row] as Routine
-        print(routineExercise.dayweek)
         cell.textLabel?.text = "\(routineExercise.weight)"
         
         return cell
