@@ -62,6 +62,8 @@ class RoutineViewController: UIViewController {
         saturdayButton.tag = 6
         sundayButton.tag = 7
         
+        tableView.register(UINib(nibName: K.CellIdentifier.routineCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifier.routineCell)
+        
     }
     
     func loadRoutine(weekday: DayOfWeek) {
@@ -129,12 +131,8 @@ class RoutineViewController: UIViewController {
             
             self.present(alert, animated: true)
             
-            print("hola")
-            
             return
         }
-        
-        print("hola2")
         
         let alert = alertSaveRoutineExercise()
         present(alert, animated: true)
@@ -239,10 +237,19 @@ extension RoutineViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.routineCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.routineCell, for: indexPath) as! RoutineExerciseCell
         
         let routineExercise = weekRoutine[indexPath.row] as Routine
-        cell.textLabel?.text = "\(routineExercise.weight)"
+        
+        if let exerciseImage = routineExercise.parent?.image_url, let imageURL = URL(string: exerciseImage) {
+            cell.exerciseImageView?.load(url: imageURL)
+        } else {
+            cell.exerciseImageView.image = UIImage(systemName: "dumbbell.fill")
+        }
+        
+        cell.exerciseNameLabel.text = "\(routineExercise.parent?.name ?? "ejercicio" )"
+        cell.seriesRepsLabel.text = "\(routineExercise.sets) sets x \(routineExercise.reps) reps"
+        cell.weightLabel.text = "\(routineExercise.weight) kg."
         
         return cell
         
