@@ -8,8 +8,8 @@
 import UIKit
 
 extension UIViewController {
-    func showSuccessAlert() {
-        let alert = UIAlertController(title: "Success", message: "Data created successfully.", preferredStyle: .alert)
+    func showSuccessAlert(message: String? = "Action completed successfully.") {
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }

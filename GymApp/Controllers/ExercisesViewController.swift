@@ -61,12 +61,14 @@ class ExercisesViewController: UIViewController {
                 //update
                 if let row = self.exercises.firstIndex(where: {$0.id == safeExercise.id}) {
                     self.exercises[row] = self.exerciseManager.update(exercise: safeExercise, newName: nameTextField.text!, newUrl: imageUrlTextField.text!)
+                    self.showSuccessAlert(message: "Exercise updated successfully")
                 }
                 
                 
             } else {
                 //create
                 self.exercises.append(self.exerciseManager.create(name: nameTextField.text!, imageUrl: imageUrlTextField.text!, exerciseType: self.exerciseType!))
+                self.showSuccessAlert(message: "Exercise created successfully")
             }
             
             self.tableView.reloadData()

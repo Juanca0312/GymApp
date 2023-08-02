@@ -122,11 +122,14 @@ class ExerciseTypesViewController: UITableViewController {
                 //update
                 if let row = self.exerciseTypes.firstIndex(where: {$0.id == safeExerciseType.id}) {
                     self.exerciseTypes[row] = self.exerciseTypeManager.update(exerciseType: safeExerciseType, newName: textField.text!)
+                    
+                    self.showSuccessAlert(message: "Exercise Type updated successfully")
                 }
                 
             } else {
                 //create
                 self.exerciseTypes.append(self.exerciseTypeManager.create(name: textField.text!))
+                self.showSuccessAlert(message: "Exercise Type created successfully")
             }
             
             self.tableView.reloadData()

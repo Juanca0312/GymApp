@@ -175,7 +175,7 @@ class RoutineViewController: UIViewController {
                     self.tableView.reloadData()
                 }
                 
-                self.showSuccessAlert()
+                self.showSuccessAlert(message: "Routine exercise created successfully")
                 
                 
             }
