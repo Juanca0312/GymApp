@@ -25,6 +25,21 @@ class RoutineManager {
         return newRoutine
     }
     
+    public func findByWeekday(weekday: DayOfWeek) -> [Routine] {
+        
+        
+        let request = Routine.fetchRequest()
+        request.predicate = NSPredicate(format: "dayweek MATCHES %@", weekday.rawValue)
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching data from context, \(error)")
+            return []
+        }
+        
+    }
+    
     private func saveContext() {
         do {
             try context.save()

@@ -52,8 +52,12 @@ class RoutineViewController: UIViewController {
         
         currentDateLabel.text = getCurrentDate()
         initWeekdayButtons()
+        loadRoutine(weekday: getCurrentWeekday()!)
         
-        
+    }
+    
+    func loadRoutine(weekday: DayOfWeek) {
+        weekRoutine = routineManager.findByWeekday(weekday: weekday)
     }
     
     func initWeekdayButtons() {
@@ -215,7 +219,8 @@ extension RoutineViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.routineCell, for: indexPath)
         
         let routineExercise = weekRoutine[indexPath.row] as Routine
-        cell.textLabel?.text = routineExercise.parent!.name
+        print(routineExercise.dayweek)
+        cell.textLabel?.text = "\(routineExercise.weight)"
         
         return cell
         
