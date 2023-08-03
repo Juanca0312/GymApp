@@ -48,8 +48,6 @@ class RoutineViewController: UIViewController {
         weekdayPicker.dataSource = self
         weekdayPicker.tag = 2
         
-        tableView.dataSource = self
-        
         currentDateLabel.text = getCurrentDate()
         initWeekdayButtons()
         loadRoutine(weekday: getCurrentWeekday()!)
@@ -62,7 +60,11 @@ class RoutineViewController: UIViewController {
         saturdayButton.tag = 6
         sundayButton.tag = 7
         
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: K.CellIdentifier.routineCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifier.routineCell)
+        
         
     }
     
@@ -242,10 +244,17 @@ extension RoutineViewController: UITableViewDataSource {
         let routineExercise = weekRoutine[indexPath.row] as Routine
         
         if let exerciseImage = routineExercise.parent?.image_url, let imageURL = URL(string: exerciseImage) {
-            cell.exerciseImageView?.load(url: imageURL)
+            cell.exerciseImageView?.load(url: imageURL) { result in
+                if case .failure(_) = result {
+                    cell.exerciseImageView.image = UIImage(systemName: "dumbbell.fill")
+                    
+                }
+            }
         } else {
             cell.exerciseImageView.image = UIImage(systemName: "dumbbell.fill")
         }
+        
+        
         
         cell.exerciseNameLabel.text = "\(routineExercise.parent?.name ?? "ejercicio" )"
         cell.seriesRepsLabel.text = "\(routineExercise.sets) sets x \(routineExercise.reps) reps"
@@ -311,3 +320,43 @@ extension RoutineViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+// MARK: - Table view delegate
+extension RoutineViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        //delete routine exercise
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            let alert = UIAlertController(title: "Are you sure you want to remove this exercise from your routine?", message: "", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Delete", style: .default) { (action) in
+                let deletedExercise = self.weekRoutine[indexPath.row]
+                self.routineManager.delete(deletedExercise)
+                self.weekRoutine.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completion(true)
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+                completion(true)
+            }
+            
+            alert.addAction(action)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+        }
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
+        //update
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return configuration
+        
+    }
+}

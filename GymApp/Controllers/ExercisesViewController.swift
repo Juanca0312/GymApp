@@ -117,8 +117,14 @@ extension ExercisesViewController: UITableViewDataSource {
         cell.exerciseNameLabel.text = exercise.name
         
         //image from url
-        if let imageURL = URL(string: exercise.image_url!) {
-            cell.imageView?.load(url: imageURL)
+        if let exerciseImage = exercise.image_url, let imageURL = URL(string: exerciseImage) {
+            cell.imageView?.load(url: imageURL) { result in
+                if case .failure(_) = result {
+                    cell.exerciseImage.image = UIImage(systemName: "dumbbell.fill")
+                }
+            }
+        } else {
+            cell.exerciseImage.image = UIImage(systemName: "dumbbell.fill")
         }
         
         
