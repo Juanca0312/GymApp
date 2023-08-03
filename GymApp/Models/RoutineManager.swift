@@ -41,6 +41,11 @@ class RoutineManager {
         
     }
     
+    public func delete(_ routineExercise: Routine) {
+        context.delete(routineExercise)
+        self.saveContext()
+    }
+    
     private func saveContext() {
         do {
             try context.save()
