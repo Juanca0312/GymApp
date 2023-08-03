@@ -4,7 +4,7 @@
         <attribute name="image_url" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExerciseType" inverseName="exercises" inverseEntity="ExerciseType"/>
-        <relationship name="routines" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Routine" inverseName="parent" inverseEntity="Routine"/>
+        <relationship name="routines" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Routine" inverseName="parent" inverseEntity="Routine"/>
     </entity>
     <entity name="ExerciseType" representedClassName="ExerciseType" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
