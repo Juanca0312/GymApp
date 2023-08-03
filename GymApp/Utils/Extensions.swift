@@ -17,13 +17,21 @@ extension UIViewController {
 
 
 extension UIImageView {
-    func load(url: URL) {
+    func load(url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
         DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
+            do {
+                let data = try Data(contentsOf: url)
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self?.image = image
+                        completion(.success(image))
                     }
+                } else {
+                    throw NSError(domain: "Image Error", code: 0, userInfo: nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
                 }
             }
         }
