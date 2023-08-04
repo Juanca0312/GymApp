@@ -46,6 +46,18 @@ class RoutineManager {
         self.saveContext()
     }
     
+    public func update(routineExercise: Routine, reps: Int, sets: Int, weight: Float, weekday: DayOfWeek, exercise: Exercise) -> Routine {
+        routineExercise.reps = Int16(reps)
+        routineExercise.sets = Int16(sets)
+        routineExercise.weight = weight
+        routineExercise.dayweek = weekday.rawValue
+        routineExercise.parent = exercise
+        
+        self.saveContext()
+        
+        return routineExercise
+    }
+    
     private func saveContext() {
         do {
             try context.save()
