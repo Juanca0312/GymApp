@@ -21,7 +21,7 @@ class RoutineViewController: UIViewController {
     @IBOutlet weak var saturdayButton: UIButton!
     @IBOutlet weak var sundayButton: UIButton!
     
-    var weekRoutine = [Routine]()
+    var routineExercises = [Routine]()
     var exercises : [Exercise] {
         exerciseManager.findAll()
     }
@@ -69,7 +69,7 @@ class RoutineViewController: UIViewController {
     }
     
     func loadRoutine(weekday: DayOfWeek) {
-        weekRoutine = routineManager.findByWeekday(weekday: weekday)
+        routineExercises = routineManager.findByWeekday(weekday: weekday)
         tableView.reloadData()
     }
     
@@ -157,6 +157,17 @@ class RoutineViewController: UIViewController {
             if let safeRoutineExercise = routineExercise {
                 //update
                 
+                let selectedExercise = self.exercises[self.selectedExercise]
+                let selectedWeekday = self.weekdays[self.selectedWeekday]
+                let reps = Int(repsTextField.text!)!
+                let sets = Int(setsTextField.text!)!
+                let weight = Float(weightTextField.text!)!
+                
+                if let row = self.routineExercises.firstIndex(where: {$0.id == safeRoutineExercise.id}) {
+                    self.routineExercises[row] = self.routineManager.update(routineExercise: safeRoutineExercise, reps: reps, sets: sets, weight: weight, weekday: selectedWeekday, exercise: selectedExercise)
+                    self.resetPickers()
+                    self.showSuccessAlert(message: "Routine exercise updated successfully")
+                }
                 
                 
             } else {
@@ -168,18 +179,20 @@ class RoutineViewController: UIViewController {
                 let sets = Int(setsTextField.text!)!
                 let weight = Float(weightTextField.text!)!
                 
-                let createdWeekDay = self.routineManager.create(reps: reps, sets: sets, weight: weight, weekday: selectedWeekday , exercise: selectedExercise)
+                let createdRoutineExercise = self.routineManager.create(reps: reps, sets: sets, weight: weight, weekday: selectedWeekday , exercise: selectedExercise)
+                
+                print(createdRoutineExercise)
                 
                 if selectedWeekday == getCurrentWeekday() {
-                    self.weekRoutine.append(createdWeekDay)
-                    self.tableView.reloadData()
+                    self.routineExercises.append(createdRoutineExercise)
                 }
                 
+                self.resetPickers()
                 self.showSuccessAlert(message: "Routine exercise created successfully")
                 
                 
             }
-            
+            self.tableView.reloadData()
             
             
         }
@@ -190,33 +203,57 @@ class RoutineViewController: UIViewController {
         alert.addAction(action)
         alert.addAction(cancelAction)
         
+        var selectedExercise = self.selectedExercise
+        
         
         alert.addTextField { textField in
+            
+            if let safeRoutineExercise = routineExercise, let row = self.exercises.firstIndex(where: {$0.id == safeRoutineExercise.parent!.id}) {
+                self.selectedExercise = row
+                selectedExercise = row
+                self.exercisePicker.selectRow(row, inComponent: 0, animated: true)
+            }
+            
             textField.inputView = self.exercisePicker
-            textField.placeholder = "Select exercise"
-            textField.text = self.exercises[self.selectedExercise].name
+            textField.text = self.exercises[selectedExercise].name
         }
         
         alert.addTextField { textField in
+            
+            if let safeRoutineExercise = routineExercise, let row = self.weekdays.firstIndex(where: {$0.rawValue == safeRoutineExercise.dayweek}) {
+                self.selectedWeekday = row
+                selectedExercise = row
+                self.weekdayPicker.selectRow(row, inComponent: 0, animated: true)
+            }
+            
             textField.inputView = self.weekdayPicker
-            textField.placeholder = "Select a weekday"
             textField.text = self.weekdays[self.selectedWeekday].rawValue
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Type sets"
             textField.keyboardType = .numberPad
+            if let safeRoutineExercise = routineExercise {
+                textField.text = "\(safeRoutineExercise.sets)"
+            }
             setsTextField = textField
+            
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Type reps"
             textField.keyboardType = .numberPad
+            if let safeRoutineExercise = routineExercise {
+                textField.text = "\(safeRoutineExercise.reps)"
+            }
             repsTextField = textField
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Type weight (kg)"
+            if let safeRoutineExercise = routineExercise {
+                textField.text = "\(safeRoutineExercise.weight)"
+            }
             textField.keyboardType = .decimalPad
             weightTextField = textField
         }
@@ -235,13 +272,13 @@ class RoutineViewController: UIViewController {
 
 extension RoutineViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weekRoutine.count
+        return routineExercises.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.routineCell, for: indexPath) as! RoutineExerciseCell
         
-        let routineExercise = weekRoutine[indexPath.row] as Routine
+        let routineExercise = routineExercises[indexPath.row] as Routine
         
         if let exerciseImage = routineExercise.parent?.image_url, let imageURL = URL(string: exerciseImage) {
             cell.exerciseImageView?.load(url: imageURL) { result in
@@ -332,9 +369,9 @@ extension RoutineViewController: UITableViewDelegate {
             let alert = UIAlertController(title: "Are you sure you want to remove this exercise from your routine?", message: "", preferredStyle: .alert)
             
             let action = UIAlertAction(title: "Delete", style: .default) { (action) in
-                let deletedExercise = self.weekRoutine[indexPath.row]
+                let deletedExercise = self.routineExercises[indexPath.row]
                 self.routineManager.delete(deletedExercise)
-                self.weekRoutine.remove(at: indexPath.row)
+                self.routineExercises.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
                 completion(true)
@@ -352,11 +389,31 @@ extension RoutineViewController: UITableViewDelegate {
         }
         deleteAction.image = UIImage(systemName: "trash.fill")
         
-        //update
+        //update routine exercise
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, view, completion) in
+            let routineExercise = self.routineExercises[indexPath.row]
+            let alert = self.alertSaveRoutineExercise(routineExercise)
+            
+            self.present(alert, animated: true)
+            completion(true)
+        }
+        updateAction.backgroundColor = .orange
+        updateAction.image = UIImage(systemName: "pencil")
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
         
         return configuration
         
     }
+    
+    private func resetPickers() {
+        selectedExercise = 0
+        selectedWeekday = 0
+        
+        exercisePicker.selectRow(0, inComponent: 0, animated: false)
+        weekdayPicker.selectRow(0, inComponent: 0, animated: false)
+    }
 }
+
+
